@@ -74,8 +74,8 @@ class MobileScanner extends StatefulWidget {
     this.placeholderBuilder,
     this.scanWindow,
     this.startDelay = false,
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<MobileScanner> createState() => _MobileScannerState();
@@ -144,7 +144,7 @@ class _MobileScannerState extends State<MobileScanner>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance?.addObserver(this);
     _controller = widget.controller ?? MobileScannerController();
     _startScanner();
   }
@@ -232,7 +232,7 @@ class _MobileScannerState extends State<MobileScanner>
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.sizeOf(context);
+    final Size size = MediaQuery.of(context).size;
 
     return ValueListenableBuilder<MobileScannerArguments?>(
       valueListenable: _controller.startArguments,
@@ -277,7 +277,7 @@ class _MobileScannerState extends State<MobileScanner>
   @override
   void dispose() {
     _controller.updateScanWindow(null);
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance?.removeObserver(this);
     _barcodesSubscription?.cancel();
     _barcodesSubscription = null;
     _controller.dispose();
