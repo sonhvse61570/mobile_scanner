@@ -2,14 +2,14 @@ group 'dev.steenbakker.mobile_scanner'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.8.22'
+    ext.kotlin_version = '1.6.10'
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.0.2'
+        classpath 'com.android.tools.build:gradle:4.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -44,7 +44,7 @@ android {
         minSdkVersion 21
     }
 
-    namespace 'dev.steenbakker.mobile_scanner'
+//    namespace 'dev.steenbakker.mobile_scanner'
 }
 
 dependencies {
